@@ -98,8 +98,8 @@ $modules = [
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #ffffff;
-            --deep-green: #5a2140;
+            --bg-main: #ffffff;
+            --hero-bg: radial-gradient(circle at center, #f9e6ee 0%, #ffffff 75%);
             --luxury-brown: #c75b87;
             --luxury-brown-hover: #a8446c;
             --accent-green: #c94f82;
@@ -113,27 +113,35 @@ $modules = [
         }
 
         body.purple-mode {
-            --deep-green: #f8e8ef;
-            --border-color: rgba(199, 91, 135, 0.3);
-            --shadow: 0 15px 35px rgba(199, 91, 135, 0.15);
+            --bg-main: #180812;
+            --hero-bg: radial-gradient(circle at center, #2a0f20 0%, #180812 75%);
+            --luxury-brown: #e07aa8;
+            --luxury-brown-hover: #f095be;
+            --accent-green: #f28ab2;
+            --text-light: #fdf8fb;
+            --text-muted: #d1b2c2;
+            --card-bg: rgba(35, 12, 26, 0.95);
+            --border-color: rgba(224, 122, 168, 0.3);
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
             scroll-behavior: smooth;
         }
 
         body {
             font-family: var(--font-sans);
-            background-color: #ffffff;
+            background-color: var(--bg-main);
             color: var(--text-light);
             margin: 0;
             overflow-x: hidden;
             min-height: 100vh;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         header {
-            background: rgba(255, 255, 255, 0.92);
+            background: var(--card-bg);
             backdrop-filter: blur(12px);
             padding: 0 5%;
             display: flex;
@@ -144,6 +152,7 @@ $modules = [
             top: 0;
             z-index: 1000;
             height: 75px;
+            transition: background 0.4s ease, border-color 0.4s ease;
         }
 
         .logo {
@@ -190,7 +199,7 @@ $modules = [
 
         nav a:hover, .dropdown-btn:hover {
             color: var(--luxury-brown);
-            background: rgba(199, 91, 135, 0.06);
+            background: rgba(199, 91, 135, 0.1);
         }
 
         .theme-toggle-btn {
@@ -206,6 +215,12 @@ $modules = [
             align-items: center;
             gap: 6px;
             box-shadow: 0 4px 12px rgba(90,33,64,0.15);
+            transition: 0.3s;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
         }
 
         .dropdown {
@@ -235,7 +250,7 @@ $modules = [
 
         .dropdown-content a {
             padding: 10px 18px;
-            border-bottom: 1px solid rgba(0,0,0,0.04);
+            border-bottom: 1px solid var(--border-color);
             font-family: var(--font-code);
             font-size: 0.8rem;
             display: flex;
@@ -246,7 +261,7 @@ $modules = [
         }
 
         .dropdown-content a:hover {
-            background: rgba(199,91,135,0.1);
+            background: rgba(199,91,135,0.15);
             color: var(--accent-green);
         }
 
@@ -256,9 +271,10 @@ $modules = [
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #f9e6ee 0%, #ffffff 75%);
+            background: var(--hero-bg);
             padding: 60px 20px 40px;
             text-align: center;
+            transition: background 0.4s ease;
         }
 
         .hero-badge {
@@ -279,7 +295,7 @@ $modules = [
             font-size: 3.5rem;
             margin: 0;
             font-weight: 900;
-            color: #24141c;
+            color: var(--text-light);
         }
 
         .hero h1 span {
@@ -312,12 +328,10 @@ $modules = [
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            border: none;
-            cursor: pointer;
         }
 
         .btn-secondary {
-            background: white;
+            background: var(--card-bg);
             color: var(--text-light);
             border: 1px solid var(--border-color);
             padding: 14px 28px;
@@ -333,10 +347,11 @@ $modules = [
             position: sticky;
             top: 75px;
             z-index: 900;
-            background: rgba(255,255,255,0.94);
+            background: var(--card-bg);
             border-bottom: 1px solid var(--border-color);
             padding: 12px 5%;
             backdrop-filter: blur(10px);
+            transition: background 0.4s ease;
         }
 
         .filter-container {
@@ -357,7 +372,7 @@ $modules = [
         }
 
         .filter-tab {
-            background: #fff7fa;
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
             color: var(--text-muted);
             padding: 6px 14px;
@@ -392,6 +407,13 @@ $modules = [
             margin: 0 0 10px;
         }
 
+        .section-title p {
+            color: var(--luxury-brown);
+            font-family: var(--font-code);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
         .modules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -405,7 +427,7 @@ $modules = [
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 25px rgba(90,33,64,0.08);
+            box-shadow: var(--shadow);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
@@ -416,19 +438,19 @@ $modules = [
 
         .module-header {
             padding: 22px 25px 15px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .module-code {
             font-family: var(--font-code);
             font-size: 0.75rem;
             color: var(--accent-green);
-            background: rgba(201,79,130,0.08);
+            background: rgba(201,79,130,0.1);
             padding: 3px 10px;
             border-radius: 12px;
             display: inline-block;
             margin-bottom: 8px;
-            border: 1px solid rgba(201,79,130,0.2);
+            border: 1px solid var(--border-color);
         }
 
         .module-title {
@@ -461,31 +483,156 @@ $modules = [
             font-family: var(--font-code);
         }
 
+        /* Upload Area للصور */
         .exercise-upload-area {
             padding: 20px 25px;
-            background: #fffafb;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .module-footer {
-            padding: 15px 25px;
-            border-top: 1px solid rgba(0,0,0,0.05);
+        .area-title {
+            font-size: 0.85rem;
+            font-family: var(--font-code);
+            color: var(--luxury-brown);
+            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* تعديل المسارات لتكون صحيحة ومضبوطة نحو مجلد public لضمان ظهور الملفات عند الأستاذ */
+        .drop-zone {
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            background: rgba(255,255,255,0.02);
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .drop-zone:hover {
+            border-color: var(--luxury-brown);
+            background: rgba(199,91,135,0.05);
+        }
+
+        .drop-zone i {
+            font-size: 1.5rem;
+            color: var(--luxury-brown);
+            margin-bottom: 6px;
+        }
+
+        .drop-zone p {
+            margin: 0;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .drop-zone span {
+            color: var(--luxury-brown);
+            font-weight: 600;
+        }
+
+        .file-input-hidden {
+            display: none;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            background: #000;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .gallery-item-actions {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(90,33,64,0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0;
+            transition: 0.2s opacity;
+        }
+
+        .gallery-item:hover .gallery-item-actions {
+            opacity: 1;
+        }
+
+        .action-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: 0.2s;
+        }
+
+        .action-btn:hover {
+            background: var(--luxury-brown);
+        }
+
+        .action-btn.delete-btn:hover {
+            background: #e74c3c;
+        }
+
+        .no-exercises {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .module-footer {
+            padding: 15px 25px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .btn-atelier {
             color: var(--luxury-brown);
-            background: white;
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 6px;
             font-family: var(--font-code);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             cursor: pointer;
             text-decoration: none;
             display: inline-flex;
@@ -499,11 +646,45 @@ $modules = [
             color: white;
         }
 
+        /* Lightbox Modal لعرض الصور */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(20,5,12,0.92);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 12px;
+            border: 1px solid var(--luxury-brown);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
         footer {
             text-align: center;
             padding: 50px 20px;
             border-top: 1px solid var(--border-color);
-            background: #ffffff;
+            background: var(--card-bg);
             font-family: var(--font-code);
             font-size: 0.75rem;
             color: var(--text-muted);
@@ -526,14 +707,13 @@ $modules = [
         <a href="#modules"><i class="fa-solid fa-cubes"></i> Modules</a>
         <div class="dropdown">
             <button class="dropdown-btn" onclick="toggleDropdown(event)">
-                <i class="fa-solid fa-folder-open"></i> Resources ▼
+                <i class="fa-solid fa-folder-open"></i> Repositories ▼
             </button>
             <div id="myDropdown" class="dropdown-content">
                 <?php foreach ($modules as $mod): ?>
-                    <!-- مسارات موجهة نحو مجلد public لكي تفتح الملفات مباشرة عند الأستاذ -->
-                    <a href="../public/docs/<?php echo strtolower($mod['code']); ?>.pdf" target="_blank">
+                    <a href="https://github.com/Hakimakimy/Portfolio__DEV204HB" target="_blank">
                         <span>&gt; <?php echo $mod['code']; ?> <?php echo htmlspecialchars($mod['title']); ?></span>
-                        <i class="fa-solid fa-file-pdf"></i>
+                        <i class="fa-brands fa-github"></i>
                     </a>
                 <?php endforeach; ?>
             </div>
@@ -553,7 +733,7 @@ $modules = [
     <p>&gt; system.init("2nd Year Digital Development Portfolio - Specialization Projects & Exercises Showcase");</p>
     <div class="hero-actions">
         <a href="#modules" class="btn-main"><i class="fa-solid fa-play"></i> Explore Modules</a>
-        <a href="https://github.com/Hakimakimy/Portfolio" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> GitHub Profile</a>
+        <a href="https://github.com/Hakimakimy/Portfolio__DEV204HB" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> GitHub Profile</a>
     </div>
 </section>
 
@@ -567,7 +747,7 @@ $modules = [
             <button class="filter-tab" onclick="filterModules('management', event)">Management & Security</button>
         </div>
         <div class="stats-counter" id="statsCounter">
-            <i class="fa-solid fa-check-circle" style="color:var(--luxury-brown);"></i> Status: <span style="color:var(--luxury-brown); font-weight:bold;">Production Ready</span>
+            <i class="fa-solid fa-images"></i> Total Exercises Uploaded: <span id="totalExercisesCount" style="color:var(--luxury-brown); font-weight:bold;">0</span>
         </div>
     </div>
 </div>
@@ -575,7 +755,7 @@ $modules = [
 <section class="modules-section" id="modules">
     <div class="section-title">
         <h2>OFPPT 2nd Year Modules Showcase</h2>
-        <p>// Access all course documents, exercises & projects directly</p>
+        <p>// Upload exercises, screenshots & projects dynamically</p>
     </div>
 
     <div class="modules-grid" id="modulesContainer">
@@ -591,19 +771,27 @@ $modules = [
                         <?php endforeach; ?>
                     </div>
                 </div>
-                <div class="exercise-upload-area">
-                    <p style="font-size:0.85rem; color:var(--text-muted); margin:0 0 10px;">
-                        <i class="fa-solid fa-folder-tree"></i> Ressources du module :
-                    </p>
-                    <!-- روابط مباشرة صحيحة نحو مجلد public لتفادي خطأ 404 عند الأستاذ -->
-                    <a href="../public/docs/<?php echo strtolower($mod['code']); ?>.pdf" target="_blank" class="btn-atelier">
-                        <i class="fa-solid fa-file-pdf"></i> Ouvrir le Cours (PDF)
-                    </a>
+
+                <!-- منطقة رفع الصور الخاصة بالتمارين -->
+                <div class="exercise-upload-area" data-module-id="<?php echo $mod['id']; ?>">
+                    <div class="area-title">
+                        <span><i class="fa-solid fa-camera"></i> Captures / Exercices</span>
+                        <span class="mod-count" style="font-size:0.75rem;">0 fichiers</span>
+                    </div>
+                    <div class="drop-zone" onclick="triggerFileInput('file-<?php echo $mod['id']; ?>')">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p>Glissez vos images ici ou <span>cliquez pour parcourir</span></p>
+                    </div>
+                    <input type="file" id="file-<?php echo $mod['id']; ?>" class="file-input-hidden" accept="image/*" multiple onchange="handleFiles('<?php echo $mod['id']; ?>', this.files)">
+                    <div class="gallery-grid" id="gallery-<?php echo $mod['id']; ?>">
+                        <div class="no-exercises">Aucun exercice téléchargé pour l'instant.</div>
+                    </div>
                 </div>
+
                 <div class="module-footer">
                     <span style="font-size:0.75rem; font-family:var(--font-code); color:var(--text-muted);">OFPPT - 2ème Année</span>
-                    <a href="https://github.com/Hakimakimy/Portfolio" target="_blank" class="btn-atelier">
-                        <i class="fa-brands fa-github">Code source</i>
+                    <a href="https://github.com/Hakimakimy/Portfolio__DEV204HB" target="_blank" class="btn-atelier">
+                        <i class="fa-brands fa-github"></i> Code Source
                     </a>
                 </div>
             </div>
@@ -611,11 +799,24 @@ $modules = [
     </div>
 </section>
 
+<!-- Lightbox لعرض الصورة بحجم كبير -->
+<div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightboxImg" alt="Aperçu">
+</div>
+
 <footer>
     <p>&copy; <?php echo date('Y'); ?> <span><?php echo htmlspecialchars($studentName); ?></span> | Portfolio DEV204HB - OFPPT ISTA</p>
 </footer>
 
 <script>
+    // تسيير تخزين الصور لكل مودول باستخدام LocalStorage
+    let exercisesData = JSON.parse(localStorage.getItem('portfolio_exercises')) || {};
+
+    document.addEventListener("DOMContentLoaded", () => {
+        renderAllGalleries();
+    });
+
     function toggleDropdown(event) {
         event.stopPropagation();
         document.getElementById("myDropdown").classList.toggle("show");
@@ -633,14 +834,23 @@ $modules = [
         }
     }
 
+    // زر تبديل الثيم Burgundy Mode / Light Mode وتغيير الخلفيات والألوان حقيقة
     function toggleTheme() {
         document.body.classList.toggle('purple-mode');
         const text = document.getElementById('themeText');
         if(document.body.classList.contains('purple-mode')) {
             text.textContent = "LIGHT MODE";
+            localStorage.setItem('portfolio_theme', 'purple');
         } else {
             text.textContent = "BURGUNDY MODE";
+            localStorage.setItem('portfolio_theme', 'light');
         }
+    }
+
+    // استرجاع الثيم المحفوظ
+    if(localStorage.getItem('portfolio_theme') === 'purple') {
+        document.body.classList.add('purple-mode');
+        document.getElementById('themeText').textContent = "LIGHT MODE";
     }
 
     function filterModules(category, event) {
@@ -656,6 +866,83 @@ $modules = [
                 card.style.display = "none";
             }
         });
+    }
+
+    function triggerFileInput(id) {
+        document.getElementById(id).click();
+    }
+
+    function handleFiles(moduleId, files) {
+        if (!exercisesData[moduleId]) {
+            exercisesData[moduleId] = [];
+        }
+
+        Array.from(files).forEach(file => {
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    exercisesData[moduleId].push(e.target.result);
+                    saveAndRender();
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    function deleteExercise(moduleId, index, event) {
+        event.stopPropagation();
+        if(exercisesData[moduleId]) {
+            exercisesData[moduleId].splice(index, 1);
+            saveAndRender();
+        }
+    }
+
+    function saveAndRender() {
+        localStorage.setItem('portfolio_exercises', JSON.stringify(exercisesData));
+        renderAllGalleries();
+    }
+
+    function renderAllGalleries() {
+        let totalCount = 0;
+        for (const moduleId in exercisesData) {
+            const images = exercisesData[moduleId];
+            const galleryEl = document.getElementById(`gallery-${moduleId}`);
+            const areaEl = galleryEl ? galleryEl.closest('.exercise-upload-area') : null;
+            const countEl = areaEl ? areaEl.querySelector('.mod-count') : null;
+
+            if (galleryEl) {
+                if (images && images.length > 0) {
+                    totalCount += images.length;
+                    if(countEl) countEl.textContent = `${images.length} fichier(s)`;
+                    let html = '';
+                    images.forEach((imgSrc, index) => {
+                        html += `
+                            <div class="gallery-item" onclick="openLightbox('${imgSrc}')">
+                                <img src="${imgSrc}" alt="Exercice">
+                                <div class="gallery-item-actions">
+                                    <button class="action-btn" title="Voir"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="action-btn delete-btn" title="Supprimer" onclick="deleteExercise('${moduleId}', ${index}, event)"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    galleryEl.innerHTML = html;
+                } else {
+                    if(countEl) countEl.textContent = `0 fichier`;
+                    galleryEl.innerHTML = `<div class="no-exercises">Aucun exercice téléchargé pour l'instant.</div>`;
+                }
+            }
+        }
+        document.getElementById('totalExercisesCount').textContent = totalCount;
+    }
+
+    function openLightbox(imgSrc) {
+        document.getElementById('lightboxImg').src = imgSrc;
+        document.getElementById('lightboxModal').style.display = "flex";
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightboxModal').style.display = "none";
     }
 </script>
 
