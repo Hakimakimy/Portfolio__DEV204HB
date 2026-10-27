@@ -13,7 +13,7 @@ $modules = [
         'category' => 'management',
         'desc' => "Analyse des besoins, élaboration du cahier des charges, modélisation UML, wireframing et charte graphique.",
         'techs' => ['UML', 'Figma', 'Agile', 'Cahier des charges'],
-        'img' => 'https://placehold.co/800x600/70264d/fff?text=M201+-+Preparation+Projet+Web'
+        'defaultImgs' => ['https://placehold.co/600x400/70264d/fff1f6?text=M201+Wireframe+Spec']
     ],
     [
         'id' => 'M202',
@@ -22,7 +22,11 @@ $modules = [
         'category' => 'management',
         'desc' => "Gestion de projet selon la méthodologie Scrum, planification des Sprints, backlog utilisateur et daily standups.",
         'techs' => ['Scrum', 'Trello', 'Jira', 'Kanban'],
-        'img' => 'https://placehold.co/800x600/70264d/fff?text=M202+-+Approche+Agile+Scrum'
+        'defaultImgs' => [
+            'https://placehold.co/600x400/70264d/fff1f6?text=M202+Scrum+Board',
+            'https://placehold.co/600x400/a84d75/fff1f6?text=Sprint+Planning',
+            'https://placehold.co/600x400/5a2140/fff1f6?text=Backlog+User'
+        ]
     ],
     [
         'id' => 'M203',
@@ -31,7 +35,7 @@ $modules = [
         'category' => 'frontend',
         'desc' => "Création d'interfaces web modernes, responsive design avec HTML5, CSS3, JavaScript ES6+ et frameworks CSS.",
         'techs' => ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Tailwind'],
-        'img' => 'https://placehold.co/800x600/70264d/fff?text=M203+-+Integration+Web'
+        'defaultImgs' => ['https://placehold.co/600x400/70264d/fff1f6?text=M203+Integration+CSS']
     ],
     [
         'id' => 'M204',
@@ -40,7 +44,7 @@ $modules = [
         'category' => 'backend',
         'desc' => "Conception d'applications web serveur sécurisées avec PHP, Laravel, Node.js, Express, POO, architecture MVC et MySQL.",
         'techs' => ['PHP', 'Laravel', 'Node.js', 'MySQL', 'PDO'],
-        'img' => 'https://placehold.co/800x600/70264d/fff?text=M204+-+Dev+Web+Dynamique'
+        'defaultImgs' => ['https://placehold.co/600x400/70264d/fff1f6?text=M204+Laravel+Backend']
     ],
     [
         'id' => 'M205',
@@ -49,7 +53,7 @@ $modules = [
         'category' => 'frontend',
         'desc' => "Création de Single Page Applications (SPA) dynamiques avec React.js / Vue.js, gestion d'état (Redux/Context API) et API REST.",
         'techs' => ['React.js', 'Redux', 'REST API', 'Tailwind'],
-        'img' => 'https://placehold.co/800x600/70264d/fff?text=M205+-+Dev+Frontend+React'
+        'defaultImgs' => ['https://placehold.co/600x400/70264d/fff1f6?text=M205+React+App']
     ],
     [
         'id' => 'M206',
@@ -58,7 +62,7 @@ $modules = [
         'category' => 'mobile',
         'desc' => "Développement mobile multiplateforme avec React Native / Flutter, intégration des composants natifs et consommation d'APIs.",
         'techs' => ['React Native', 'Flutter', 'Mobile UI', 'Expo'],
-        'img' => 'https://placehold.co/800x600/70264d/fff?text=M206+-+App+Mobile'
+        'defaultImgs' => ['https://placehold.co/600x400/70264d/fff1f6?text=M206+Mobile+Screen']
     ],
     [
         'id' => 'M207',
@@ -67,7 +71,7 @@ $modules = [
         'category' => 'management',
         'desc' => "Mise en œuvre des bonnes pratiques de cybersécurité, prévention OWASP (XSS, SQLi, CSRF), chiffrement et authentification JWT.",
         'techs' => ['OWASP', 'JWT', 'HTTPS', 'Encryption'],
-        'img' => 'https://placehold.co/800x600/70264d/fff?text=M207+-+Securite+Web'
+        'defaultImgs' => ['https://placehold.co/600x400/70264d/fff1f6?text=M207+Security+Audit']
     ],
     [
         'id' => 'M208',
@@ -76,7 +80,7 @@ $modules = [
         'category' => 'mobile',
         'desc' => "Conteneurisation d'applications avec Docker, hébergement cloud, intégration/déploiement continu (CI/CD) et administration serveur.",
         'techs' => ['Docker', 'CI/CD', 'Git', 'Vercel/AWS'],
-        'img' => 'https://placehold.co/800x600/70264d/fff?text=M208+-+Cloud+DevOps'
+        'defaultImgs' => ['https://placehold.co/600x400/70264d/fff1f6?text=M208+Docker+DevOps']
     ],
     [
         'id' => 'M209',
@@ -85,7 +89,7 @@ $modules = [
         'category' => 'backend',
         'desc' => "Projet de synthèse complet intégrant l'ensemble des compétences acquises durant la formation en Développement Digital.",
         'techs' => ['Full-Stack', 'Laravel/React', 'PFE', 'UML'],
-        'img' => 'https://placehold.co/800x600/70264d/fff?text=M209+-+Projet+Fin+Etudes+PFE'
+        'defaultImgs' => ['https://placehold.co/600x400/70264d/fff1f6?text=M209+PFE+Dashboard']
     ]
 ];
 ?>
@@ -223,6 +227,48 @@ $modules = [
             filter: brightness(1.1);
         }
 
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            min-width: 280px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-height: 420px;
+            overflow-y: auto;
+            z-index: 1001;
+            padding: 6px 0;
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .dropdown-content a {
+            padding: 10px 18px;
+            border-bottom: 1px solid var(--border-color);
+            font-family: var(--font-code);
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(199,91,135,0.15);
+            color: var(--accent-green);
+        }
+
         .hero {
             min-height: 60vh;
             display: flex;
@@ -348,6 +394,12 @@ $modules = [
             border-color: var(--luxury-brown);
         }
 
+        .stats-counter {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-family: var(--font-code);
+        }
+
         .modules-section {
             padding: 40px 5% 80px;
             max-width: 1400px;
@@ -441,6 +493,7 @@ $modules = [
             font-family: var(--font-code);
         }
 
+        /* Upload Area المطابق للصورة تماماً */
         .exercise-upload-area {
             padding: 20px 25px;
             flex-grow: 1;
@@ -453,30 +506,118 @@ $modules = [
             font-family: var(--font-code);
             color: var(--luxury-brown);
             margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .btn-atelier {
-            color: var(--luxury-brown);
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-family: var(--font-code);
-            font-size: 0.85rem;
+        .drop-zone {
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            background: rgba(255,255,255,0.02);
             cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
+            transition: 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .drop-zone:hover {
+            border-color: var(--luxury-brown);
+            background: rgba(199,91,135,0.05);
+        }
+
+        .drop-zone i {
+            font-size: 1.4rem;
+            color: var(--luxury-brown);
+            margin-bottom: 4px;
+        }
+
+        .drop-zone p {
+            margin: 0;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-family: var(--font-code);
+        }
+
+        .drop-zone span {
+            color: var(--luxury-brown);
+            font-weight: 600;
+        }
+
+        .file-input-hidden {
+            display: none;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            background: #000;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .gallery-item-actions {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(90,33,64,0.75);
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: 0.3s;
-            width: 100%;
-            text-align: center;
+            gap: 6px;
+            opacity: 0;
+            transition: 0.2s opacity;
         }
 
-        .btn-atelier:hover {
-            background: var(--luxury-brown);
+        .gallery-item:hover .gallery-item-actions {
+            opacity: 1;
+        }
+
+        .action-btn {
+            background: rgba(255,255,255,0.2);
             color: white;
+            border: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.65rem;
+            transition: 0.2s;
+        }
+
+        .action-btn:hover {
+            background: var(--luxury-brown);
+        }
+
+        .action-btn.delete-btn:hover {
+            background: #e74c3c;
         }
 
         .module-footer {
@@ -487,7 +628,28 @@ $modules = [
             align-items: center;
         }
 
-        /* نافذة المعاينة (Lightbox Modal) الاحترافية للصور */
+        .btn-atelier {
+            color: var(--luxury-brown);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-family: var(--font-code);
+            font-size: 0.78rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+        }
+
+        .btn-atelier:hover {
+            background: var(--luxury-brown);
+            color: white;
+        }
+
+        /* Lightbox Modal */
         .lightbox-modal {
             display: none;
             position: fixed;
@@ -496,7 +658,7 @@ $modules = [
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(20, 5, 12, 0.92);
+            background: rgba(20,5,12,0.92);
             backdrop-filter: blur(10px);
             flex-direction: column;
             justify-content: center;
@@ -510,7 +672,6 @@ $modules = [
             border-radius: 12px;
             border: 2px solid var(--luxury-brown);
             object-fit: contain;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
 
         .lightbox-close {
@@ -520,11 +681,6 @@ $modules = [
             color: white;
             font-size: 2.5rem;
             cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .lightbox-close:hover {
-            color: var(--luxury-brown);
         }
 
         footer {
@@ -552,6 +708,19 @@ $modules = [
     </a>
     <nav>
         <a href="#modules"><i class="fa-solid fa-cubes"></i> Modules</a>
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(event)">
+                <i class="fa-solid fa-folder-open"></i> Repositories.exe ▼
+            </button>
+            <div id="myDropdown" class="dropdown-content">
+                <?php foreach ($modules as $mod): ?>
+                    <a href="https://github.com/Hakimakimy/Portfolio__DEV204HB" target="_blank">
+                        <span>&gt; <?php echo $mod['code']; ?> <?php echo htmlspecialchars($mod['title']); ?></span>
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
         <button class="theme-toggle-btn" onclick="toggleTheme()">
             <i class="fa-solid fa-circle-half-stroke"></i>
             <span id="themeText">BURGUNDY MODE</span>
@@ -580,8 +749,8 @@ $modules = [
             <button class="filter-tab" onclick="filterModules('mobile', event)">Mobile & Cloud</button>
             <button class="filter-tab" onclick="filterModules('management', event)">Management & Security</button>
         </div>
-        <div class="stats-counter">
-            <i class="fa-solid fa-check-circle" style="color:var(--luxury-brown);"></i> Status: <span style="color:var(--luxury-brown); font-weight:bold;">Online & Secure</span>
+        <div class="stats-counter" id="statsCounter">
+            <i class="fa-solid fa-images"></i> Total Exercises Preserved: <span id="totalExercisesCount" style="color:var(--luxury-brown); font-weight:bold;">0</span>
         </div>
     </div>
 </div>
@@ -589,7 +758,7 @@ $modules = [
 <section class="modules-section" id="modules">
     <div class="section-title">
         <h2>OFPPT 2nd Year Modules Showcase</h2>
-        <p>// Visualisation interactive des supports de cours et des travaux</p>
+        <p>// Track, upload and document your daily exercises & projects</p>
     </div>
 
     <div class="modules-grid" id="modulesContainer">
@@ -606,31 +775,38 @@ $modules = [
                     </div>
                 </div>
 
-                <div class="exercise-upload-area">
+                <!-- منطقة رفع الصور والـ Drop Zone واضحة ومطابقة للصورة تماماً -->
+                <div class="exercise-upload-area" data-module-id="<?php echo $mod['id']; ?>">
                     <div class="area-title">
-                        <span><i class="fa-solid fa-image"></i> Support du Cours & Réalisations</span>
+                        <span><i class="fa-solid fa-camera"></i> Exercises Screenshots</span>
+                        <span class="mod-count" style="font-size:0.78rem;">0 file(s)</span>
                     </div>
-                    <!-- زر تفاعلي يفتح الصورة مباشرة في Modal مدمجة بدون أخطاء 404 -->
-                    <button class="btn-atelier" onclick="openLightbox('<?php echo $mod['img']; ?>', '<?php echo addslashes($mod['title']); ?>')">
-                        <i class="fa-solid fa-eye"></i> Afficher le Support / Image
-                    </button>
+                    <div class="drop-zone" onclick="triggerFileInput('file-<?php echo $mod['id']; ?>')">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p>Drag & Drop exercise photo or <span>Browse</span></p>
+                    </div>
+                    <input type="file" id="file-<?php echo $mod['id']; ?>" class="file-input-hidden" accept="image/*" multiple onchange="handleFiles('<?php echo $mod['id']; ?>', this.files)">
+                    
+                    <div class="gallery-grid" id="gallery-<?php echo $mod['id']; ?>">
+                        <!-- سيتم تعبئتها أوتوماتيكياً عبر الـ JavaScript مع استحضار الصور الافتراضية -->
+                    </div>
                 </div>
 
                 <div class="module-footer">
-                    <span style="font-size:0.75rem; font-family:var(--font-code); color:var(--text-muted);">OFPPT - 2ème Année</span>
-                    <a href="https://github.com/Hakimakimy/Portfolio__DEV204HB" target="_blank" class="btn-atelier" style="width:auto; padding:6px 12px;">
-                        <i class="fa-brands fa-github"></i> Code Source
+                    <a href="#modules" class="btn-atelier" onclick="alert('Module code: <?php echo $mod['code']; ?> | Status: Active & Secured')">
+                        <i class="fa-solid fa-folder-open"></i> View Details
                     </a>
+                    <span style="font-size:0.75rem; font-family:var(--font-code); color:var(--text-muted);">OFPPT DD 2026</span>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
 </section>
 
-<!-- نافذة المعاينة المدمجة (Lightbox) -->
+<!-- Lightbox Modal -->
 <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
-    <img class="lightbox-img" id="lightboxImg" alt="Support du cours">
+    <img class="lightbox-img" id="lightboxImg" alt="Aperçu">
 </div>
 
 <footer>
@@ -638,6 +814,36 @@ $modules = [
 </footer>
 
 <script>
+    // تضمين الصور الافتراضية لكل مودول لكي تظهر دائماً حتى عند الأستاذ، مع إمكانية إضافة صور جديدة من الحاسوب
+    const defaultData = {
+        <?php foreach ($modules as $mod): ?>
+        "<?php echo $mod['id']; ?>": <?php echo json_encode($mod['defaultImgs']); ?>,
+        <?php endforeach; ?>
+    };
+
+    let exercisesData = JSON.parse(localStorage.getItem('portfolio_exercises_v2')) || defaultData;
+
+    document.addEventListener("DOMContentLoaded", () => {
+        renderAllGalleries();
+    });
+
+    function toggleDropdown(event) {
+        event.stopPropagation();
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropdown-btn') && !event.target.closest('.dropdown-btn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
     function toggleTheme() {
         document.body.classList.toggle('purple-mode');
         const text = document.getElementById('themeText');
@@ -670,8 +876,75 @@ $modules = [
         });
     }
 
-    // دوال تشغيل المعاينة بدون أخطاء 404
-    function openLightbox(imgSrc, title) {
+    function triggerFileInput(id) {
+        document.getElementById(id).click();
+    }
+
+    function handleFiles(moduleId, files) {
+        if (!exercisesData[moduleId]) {
+            exercisesData[moduleId] = [];
+        }
+
+        Array.from(files).forEach(file => {
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    exercisesData[moduleId].push(e.target.result);
+                    saveAndRender();
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    function deleteExercise(moduleId, index, event) {
+        event.stopPropagation();
+        if(exercisesData[moduleId]) {
+            exercisesData[moduleId].splice(index, 1);
+            saveAndRender();
+        }
+    }
+
+    function saveAndRender() {
+        localStorage.setItem('portfolio_exercises_v2', JSON.stringify(exercisesData));
+        renderAllGalleries();
+    }
+
+    function renderAllGalleries() {
+        let totalCount = 0;
+        for (const moduleId in exercisesData) {
+            const images = exercisesData[moduleId];
+            const galleryEl = document.getElementById(`gallery-${moduleId}`);
+            const areaEl = galleryEl ? galleryEl.closest('.exercise-upload-area') : null;
+            const countEl = areaEl ? areaEl.querySelector('.mod-count') : null;
+
+            if (galleryEl) {
+                if (images && images.length > 0) {
+                    totalCount += images.length;
+                    if(countEl) countEl.textContent = `${images.length} file(s)`;
+                    let html = '';
+                    images.forEach((imgSrc, index) => {
+                        html += `
+                            <div class="gallery-item" onclick="openLightbox('${imgSrc}')">
+                                <img src="${imgSrc}" alt="Exercise">
+                                <div class="gallery-item-actions">
+                                    <button class="action-btn" title="View"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="action-btn delete-btn" title="Delete" onclick="deleteExercise('${moduleId}', ${index}, event)"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    galleryEl.innerHTML = html;
+                } else {
+                    if(countEl) countEl.textContent = `0 file(s)`;
+                    galleryEl.innerHTML = `<div style="font-size:0.75rem; color:var(--text-muted); text-align:center; padding:5px; font-style:italic;">No files uploaded</div>`;
+                }
+            }
+        }
+        document.getElementById('totalExercisesCount').textContent = totalCount;
+    }
+
+    function openLightbox(imgSrc) {
         document.getElementById('lightboxImg').src = imgSrc;
         document.getElementById('lightboxModal').style.display = "flex";
     }
