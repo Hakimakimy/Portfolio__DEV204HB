@@ -13,7 +13,7 @@ $modules = [
         'category' => 'management',
         'desc' => "Analyse des besoins, élaboration du cahier des charges, modélisation UML, wireframing et charte graphique.",
         'techs' => ['UML', 'Figma', 'Agile', 'Cahier des charges'],
-        'img' => '../public/images/m201.png'
+        'img' => 'https://placehold.co/800x600/70264d/fff?text=M201+-+Preparation+Projet+Web'
     ],
     [
         'id' => 'M202',
@@ -22,7 +22,7 @@ $modules = [
         'category' => 'management',
         'desc' => "Gestion de projet selon la méthodologie Scrum, planification des Sprints, backlog utilisateur et daily standups.",
         'techs' => ['Scrum', 'Trello', 'Jira', 'Kanban'],
-        'img' => '../public/images/m202.png'
+        'img' => 'https://placehold.co/800x600/70264d/fff?text=M202+-+Approche+Agile+Scrum'
     ],
     [
         'id' => 'M203',
@@ -31,7 +31,7 @@ $modules = [
         'category' => 'frontend',
         'desc' => "Création d'interfaces web modernes, responsive design avec HTML5, CSS3, JavaScript ES6+ et frameworks CSS.",
         'techs' => ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Tailwind'],
-        'img' => '../public/images/m203.png'
+        'img' => 'https://placehold.co/800x600/70264d/fff?text=M203+-+Integration+Web'
     ],
     [
         'id' => 'M204',
@@ -40,7 +40,7 @@ $modules = [
         'category' => 'backend',
         'desc' => "Conception d'applications web serveur sécurisées avec PHP, Laravel, Node.js, Express, POO, architecture MVC et MySQL.",
         'techs' => ['PHP', 'Laravel', 'Node.js', 'MySQL', 'PDO'],
-        'img' => '../public/images/m204.png'
+        'img' => 'https://placehold.co/800x600/70264d/fff?text=M204+-+Dev+Web+Dynamique'
     ],
     [
         'id' => 'M205',
@@ -49,7 +49,7 @@ $modules = [
         'category' => 'frontend',
         'desc' => "Création de Single Page Applications (SPA) dynamiques avec React.js / Vue.js, gestion d'état (Redux/Context API) et API REST.",
         'techs' => ['React.js', 'Redux', 'REST API', 'Tailwind'],
-        'img' => '../public/images/m205.png'
+        'img' => 'https://placehold.co/800x600/70264d/fff?text=M205+-+Dev+Frontend+React'
     ],
     [
         'id' => 'M206',
@@ -58,7 +58,7 @@ $modules = [
         'category' => 'mobile',
         'desc' => "Développement mobile multiplateforme avec React Native / Flutter, intégration des composants natifs et consommation d'APIs.",
         'techs' => ['React Native', 'Flutter', 'Mobile UI', 'Expo'],
-        'img' => '../public/images/m206.png'
+        'img' => 'https://placehold.co/800x600/70264d/fff?text=M206+-+App+Mobile'
     ],
     [
         'id' => 'M207',
@@ -67,7 +67,7 @@ $modules = [
         'category' => 'management',
         'desc' => "Mise en œuvre des bonnes pratiques de cybersécurité, prévention OWASP (XSS, SQLi, CSRF), chiffrement et authentification JWT.",
         'techs' => ['OWASP', 'JWT', 'HTTPS', 'Encryption'],
-        'img' => '../public/images/m207.png'
+        'img' => 'https://placehold.co/800x600/70264d/fff?text=M207+-+Securite+Web'
     ],
     [
         'id' => 'M208',
@@ -76,7 +76,7 @@ $modules = [
         'category' => 'mobile',
         'desc' => "Conteneurisation d'applications avec Docker, hébergement cloud, intégration/déploiement continu (CI/CD) et administration serveur.",
         'techs' => ['Docker', 'CI/CD', 'Git', 'Vercel/AWS'],
-        'img' => '../public/images/m208.png'
+        'img' => 'https://placehold.co/800x600/70264d/fff?text=M208+-+Cloud+DevOps'
     ],
     [
         'id' => 'M209',
@@ -85,7 +85,7 @@ $modules = [
         'category' => 'backend',
         'desc' => "Projet de synthèse complet intégrant l'ensemble des compétences acquises durant la formation en Développement Digital.",
         'techs' => ['Full-Stack', 'Laravel/React', 'PFE', 'UML'],
-        'img' => '../public/images/m209.png'
+        'img' => 'https://placehold.co/800x600/70264d/fff?text=M209+-+Projet+Fin+Etudes+PFE'
     ]
 ];
 ?>
@@ -221,48 +221,6 @@ $modules = [
         .theme-toggle-btn:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            min-width: 280px;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            max-height: 420px;
-            overflow-y: auto;
-            z-index: 1001;
-            padding: 6px 0;
-        }
-
-        .dropdown-content.show {
-            display: block;
-        }
-
-        .dropdown-content a {
-            padding: 10px 18px;
-            border-bottom: 1px solid var(--border-color);
-            font-family: var(--font-code);
-            font-size: 0.8rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-light);
-            text-decoration: none;
-        }
-
-        .dropdown-content a:hover {
-            background: rgba(199,91,135,0.15);
-            color: var(--accent-green);
         }
 
         .hero {
@@ -495,9 +453,6 @@ $modules = [
             font-family: var(--font-code);
             color: var(--luxury-brown);
             margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .btn-atelier {
@@ -532,6 +487,46 @@ $modules = [
             align-items: center;
         }
 
+        /* نافذة المعاينة (Lightbox Modal) الاحترافية للصور */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(20, 5, 12, 0.92);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 12px;
+            border: 2px solid var(--luxury-brown);
+            object-fit: contain;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--luxury-brown);
+        }
+
         footer {
             text-align: center;
             padding: 50px 20px;
@@ -557,19 +552,6 @@ $modules = [
     </a>
     <nav>
         <a href="#modules"><i class="fa-solid fa-cubes"></i> Modules</a>
-        <div class="dropdown">
-            <button class="dropdown-btn" onclick="toggleDropdown(event)">
-                <i class="fa-solid fa-folder-open"></i> Repositories ▼
-            </button>
-            <div id="myDropdown" class="dropdown-content">
-                <?php foreach ($modules as $mod): ?>
-                    <a href="https://github.com/Hakimakimy/Portfolio__DEV204HB" target="_blank">
-                        <span>&gt; <?php echo $mod['code']; ?> <?php echo htmlspecialchars($mod['title']); ?></span>
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
         <button class="theme-toggle-btn" onclick="toggleTheme()">
             <i class="fa-solid fa-circle-half-stroke"></i>
             <span id="themeText">BURGUNDY MODE</span>
@@ -599,7 +581,7 @@ $modules = [
             <button class="filter-tab" onclick="filterModules('management', event)">Management & Security</button>
         </div>
         <div class="stats-counter">
-            <i class="fa-solid fa-check-circle" style="color:var(--luxury-brown);"></i> Status: <span style="color:var(--luxury-brown); font-weight:bold;">Production Online</span>
+            <i class="fa-solid fa-check-circle" style="color:var(--luxury-brown);"></i> Status: <span style="color:var(--luxury-brown); font-weight:bold;">Online & Secure</span>
         </div>
     </div>
 </div>
@@ -607,7 +589,7 @@ $modules = [
 <section class="modules-section" id="modules">
     <div class="section-title">
         <h2>OFPPT 2nd Year Modules Showcase</h2>
-        <p>// Accédez aux cours et réalisations de chaque module en un clic</p>
+        <p>// Visualisation interactive des supports de cours et des travaux</p>
     </div>
 
     <div class="modules-grid" id="modulesContainer">
@@ -628,10 +610,10 @@ $modules = [
                     <div class="area-title">
                         <span><i class="fa-solid fa-image"></i> Support du Cours & Réalisations</span>
                     </div>
-                    <!-- رابط مباشر نحو صورة الدرس لكي تفتح فوراً عند الأستاذ من أي هاتف أو حاسوب -->
-                    <a href="<?php echo $mod['img']; ?>" target="_blank" class="btn-atelier">
+                    <!-- زر تفاعلي يفتح الصورة مباشرة في Modal مدمجة بدون أخطاء 404 -->
+                    <button class="btn-atelier" onclick="openLightbox('<?php echo $mod['img']; ?>', '<?php echo addslashes($mod['title']); ?>')">
                         <i class="fa-solid fa-eye"></i> Afficher le Support / Image
-                    </a>
+                    </button>
                 </div>
 
                 <div class="module-footer">
@@ -645,29 +627,17 @@ $modules = [
     </div>
 </section>
 
+<!-- نافذة المعاينة المدمجة (Lightbox) -->
+<div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightboxImg" alt="Support du cours">
+</div>
+
 <footer>
     <p>&copy; <?php echo date('Y'); ?> <span><?php echo htmlspecialchars($studentName); ?></span> | Portfolio DEV204HB - OFPPT ISTA</p>
 </footer>
 
 <script>
-    function toggleDropdown(event) {
-        event.stopPropagation();
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropdown-btn') && !event.target.closest('.dropdown-btn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            for (let i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
-    // زر تبديل الثيم Burgundy Mode بشكل حقيقي وسلس
     function toggleTheme() {
         document.body.classList.toggle('purple-mode');
         const text = document.getElementById('themeText');
@@ -698,6 +668,16 @@ $modules = [
                 card.style.display = "none";
             }
         });
+    }
+
+    // دوال تشغيل المعاينة بدون أخطاء 404
+    function openLightbox(imgSrc, title) {
+        document.getElementById('lightboxImg').src = imgSrc;
+        document.getElementById('lightboxModal').style.display = "flex";
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightboxModal').style.display = "none";
     }
 </script>
 
