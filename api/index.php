@@ -703,6 +703,9 @@ $modules = [
             position: absolute;
             top: 25px;
             right: 35px;
+            padding: 0;
+            border: 0;
+            background: transparent;
             color: white;
             font-size: 2.5rem;
             cursor: pointer;
@@ -830,8 +833,8 @@ $modules = [
 
 <!-- Lightbox Modal -->
 <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-img" id="lightboxImg" alt="Aperçu">
+    <button class="lightbox-close" type="button" aria-label="Fermer l'image" onclick="closeLightbox(event)">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" alt="Aperçu" onclick="event.stopPropagation()">
 </div>
 
 <footer>
@@ -851,6 +854,7 @@ $modules = [
     if (!localStorage.getItem('portfolio_m202_gallery_seeded')) {
         if (!Array.isArray(exercisesData.M202) || exercisesData.M202.length === 0) {
             exercisesData.M202 = [...defaultData.M202];
+            localStorage.setItem('portfolio_exercises_v2', JSON.stringify(exercisesData));
         }
         localStorage.setItem('portfolio_m202_gallery_seeded', 'true');
     }
@@ -984,6 +988,10 @@ $modules = [
     function closeLightbox() {
         document.getElementById('lightboxModal').style.display = "none";
     }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') closeLightbox();
+    });
 </script>
 
 </body>
