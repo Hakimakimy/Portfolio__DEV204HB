@@ -850,13 +850,10 @@ $modules = [
     };
 
     let exercisesData = JSON.parse(localStorage.getItem('portfolio_exercises_v2')) || defaultData;
-    // One-time migration for older browsers that saved an empty M202 gallery.
-    if (!localStorage.getItem('portfolio_m202_gallery_seeded')) {
-        if (!Array.isArray(exercisesData.M202) || exercisesData.M202.length === 0) {
-            exercisesData.M202 = [...defaultData.M202];
-            localStorage.setItem('portfolio_exercises_v2', JSON.stringify(exercisesData));
-        }
-        localStorage.setItem('portfolio_m202_gallery_seeded', 'true');
+    // Restore the bundled M202 gallery if an older saved empty array hides it.
+    if (!Array.isArray(exercisesData.M202) || exercisesData.M202.length === 0) {
+        exercisesData.M202 = [...defaultData.M202];
+        localStorage.setItem('portfolio_exercises_v2', JSON.stringify(exercisesData));
     }
 
     document.addEventListener("DOMContentLoaded", () => {
