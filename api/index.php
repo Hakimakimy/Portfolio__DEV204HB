@@ -23,9 +23,13 @@ $modules = [
         'desc' => "Gestion de projet selon la méthodologie Scrum, planification des Sprints, backlog utilisateur et daily standups.",
         'techs' => ['Scrum', 'Trello', 'Jira', 'Kanban'],
         'defaultImgs' => [
-            'https://placehold.co/600x400/70264d/fff1f6?text=M202+Scrum+Board',
-            'https://placehold.co/600x400/a84d75/fff1f6?text=Sprint+Planning',
-            'https://placehold.co/600x400/5a2140/fff1f6?text=Backlog+User'
+            '/Images/pc1.jpeg',
+            '/Images/pc2.jpeg',
+            '/Images/pc3.jpeg',
+            '/Images/pc4.jpeg',
+            '/Images/pc5.jpeg',
+            '/Images/pc6.jpeg',
+            '/Images/pc7.jpeg'
         ]
     ],
     [
@@ -550,20 +554,41 @@ $modules = [
         }
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+            display: flex;
             gap: 8px;
             margin-top: 5px;
+            padding: 2px 1px 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: var(--luxury-brown) rgba(199,91,135,0.12);
+            scroll-snap-type: x proximity;
+        }
+
+        .gallery-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .gallery-grid::-webkit-scrollbar-track {
+            background: rgba(199,91,135,0.12);
+            border-radius: 10px;
+        }
+
+        .gallery-grid::-webkit-scrollbar-thumb {
+            background: var(--luxury-brown);
+            border-radius: 10px;
         }
 
         .gallery-item {
             position: relative;
-            aspect-ratio: 1;
-            border-radius: 6px;
+            flex: 0 0 104px;
+            height: 74px;
+            border-radius: 9px;
             overflow: hidden;
             border: 1px solid var(--border-color);
             cursor: pointer;
             background: #000;
+            scroll-snap-align: start;
         }
 
         .gallery-item img {
@@ -822,6 +847,13 @@ $modules = [
     };
 
     let exercisesData = JSON.parse(localStorage.getItem('portfolio_exercises_v2')) || defaultData;
+    // One-time migration for older browsers that saved an empty M202 gallery.
+    if (!localStorage.getItem('portfolio_m202_gallery_seeded')) {
+        if (!Array.isArray(exercisesData.M202) || exercisesData.M202.length === 0) {
+            exercisesData.M202 = [...defaultData.M202];
+        }
+        localStorage.setItem('portfolio_m202_gallery_seeded', 'true');
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
         renderAllGalleries();
